@@ -30,7 +30,7 @@ def getSnaps(lat,lon):
     responseText = responseSnaps.text
     responseText = json.loads(responseText) #load text to json
     responseText = json.dumps(responseText,indent=4,sort_keys=False) #beautify json output
-    fileName = "S"+str(lat)+":"+str(lon)+"_"+Epoch+".txt" # File will be saved with snaps info
+    fileName = "S"+str(lat).replace('.',',')+'&'+str(lon).replace('.',',')+"_"+Epoch+".txt" # File will be saved with snaps info
     file = open(fileName, 'a')
     file.write(responseText.encode('utf-8'))
     file.close()
